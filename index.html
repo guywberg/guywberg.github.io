@@ -111,8 +111,21 @@
 
     .header-links a:hover { opacity: 0.7; }
 
+    .header-email {
+      font-size: 0.82rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
     .header-links .icon {
       width: 13px; height: 13px;
+      opacity: 0.65; flex-shrink: 0;
+    }
+
+    .header-links .icon-lg {
+      width: 18px; height: 18px;
       opacity: 0.65; flex-shrink: 0;
     }
 
@@ -249,21 +262,19 @@
       <p class="institution">EPFL, Switzerland</p>
       <ul class="header-links">
         <li>
-          <a href="/cdn-cgi/l/email-protection#701705095e0715190303151e12150217301500161c5e1318">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
-            <span class="__cf_email__" data-cfemail="680f1d11461f0d011b1b0d060a0d1a0f280d180e04460b00">[email&#160;protected]</span>
+          <span class="header-email">
+            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+            guy [dot] weissenberg [at] epfl [dot] ch
+          </span>
+        </li>
+        <li>
+          <a href="https://scholar.google.com/citations?hl=en&authuser=1&user=upVcZgsAAAAJ" target="_blank" rel="noopener" title="Google Scholar">
+            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12 12 0 0 1 .84 4.572c0 3.45-2.239 6.35-5 7.85-2.761-1.5-5-4.4-5-7.85a12 12 0 0 1 .84-4.572L12 14z"/></svg>
           </a>
         </li>
         <li>
-          <a href="https://scholar.google.com/citations?hl=en&authuser=1&user=upVcZgsAAAAJ" target="_blank" rel="noopener">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12 12 0 0 1 .84 4.572c0 3.45-2.239 6.35-5 7.85-2.761-1.5-5-4.4-5-7.85a12 12 0 0 1 .84-4.572L12 14z"/></svg>
-            Google Scholar
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/GuyWberg" target="_blank" rel="noopener">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub
+          <a href="https://github.com/GuyWberg" target="_blank" rel="noopener" title="GitHub">
+            <svg class="icon-lg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
           </a>
         </li>
       </ul>
@@ -278,6 +289,8 @@
         I'm Guy Weissenberg, a PhD student at
         <a href="https://www.epfl.ch/education/phd/edic-computer-and-communication-sciences/">EPFL</a>, advised by
         <a href="https://ic-people.epfl.ch/~achiesa/">Prof. Alessandro Chiesa</a> and <a href="https://theory.epfl.ch/kapralov/">Prof. Michael Kapralov</a>.
+      </p>
+      <p>
         I work in theoretical computer science, with a focus on proof systems,
         coding theory, sublinear algorithms, and property testing.
       </p>
