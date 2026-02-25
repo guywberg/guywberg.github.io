@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guy Weissenberg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #faf9f7;
+      --text: #1a1a1a;
+      --text-light: #555;
+      --text-muted: #888;
+      --accent: #2a52a0;
+      --accent-light: #e8edf7;
+      --border: #e2ddd8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    /* ── Header ── */
+    .header {
+      display: flex;
+      align-items: flex-start;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.5s ease 0.05s forwards;
+    }
+
+    .avatar-wrap {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--accent-light);
+      border: 3px solid var(--border);
+    }
+
+    .avatar-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+
+    .avatar-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+      color: var(--accent);
+      font-family: 'EB Garamond', serif;
+    }
+
+    .header-info { padding-top: 0.25rem; }
+
+    .header-info h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 0.2rem;
+    }
+
+    .header-info .role {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 0.1rem;
+    }
+
+    .header-info .institution {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .header-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 1.1rem;
+    }
+
+    .header-links a {
+      font-size: 0.82rem;
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: opacity 0.15s;
+    }
+
+    .header-links a:hover { opacity: 0.7; }
+
+    .header-links .icon {
+      width: 13px; height: 13px;
+      opacity: 0.65; flex-shrink: 0;
+    }
+
+    /* ── Sections ── */
+    .section {
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(14px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    .section:nth-child(2) { animation-delay: 0.12s; }
+    .section:nth-child(3) { animation-delay: 0.19s; }
+    .section:nth-child(4) { animation-delay: 0.26s; }
+    .section:nth-child(5) { animation-delay: 0.33s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Bio ── */
+    .hello-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .bio p {
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 0.85rem;
+    }
+
+    .bio p:last-child { margin-bottom: 0; }
+
+    .bio a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .bio a:hover { border-bottom-color: var(--accent); }
+
+    /* ── Publications ── */
+    .pub-list { list-style: none; display: flex; flex-direction: column; gap: 1.1rem; }
+
+    .pub-item {
+      padding-left: 1rem;
+      border-left: 2px solid var(--border);
+      transition: border-color 0.2s;
+    }
+
+    .pub-item:hover { border-left-color: var(--accent); }
+
+    a.pub-link {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    a.pub-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .pub-venue {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .pub-authors {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      line-height: 1.55;
+      margin-top: 0.15rem;
+    }
+
+    .pub-authors strong { color: var(--text); font-weight: 500; }
+
+    /* ── Teaching ── */
+    .teaching-list { list-style: none; }
+
+    .teaching-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 0.2rem 0;
+    }
+
+    .teaching-course { font-size: 0.92rem; }
+    .teaching-course span { color: var(--text-muted); font-size: 0.82rem; }
+
+    .teaching-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 560px) {
+      .header { flex-direction: column; gap: 1.25rem; }
+      .avatar-wrap { width: 90px; height: 90px; }
+      .header-info h1 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="avatar-wrap">
+      <img src="guy-weissenberg.jpg" alt="Guy Weissenberg">
+    </div>
+    <div class="header-info">
+      <h1>Guy Weissenberg</h1>
+      <p class="role">PhD Student</p>
+      <p class="institution">EPFL, Switzerland</p>
+      <ul class="header-links">
+        <li>
+          <a href="mailto:guy.weissenberg@epfl.ch">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+            guy.weissenberg@epfl.ch
+          </a>
+        </li>
+        <li>
+          <a href="https://scholar.google.com/citations?hl=en&authuser=1&user=upVcZgsAAAAJ" target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12 12 0 0 1 .84 4.572c0 3.45-2.239 6.35-5 7.85-2.761-1.5-5-4.4-5-7.85a12 12 0 0 1 .84-4.572L12 14z"/></svg>
+            Google Scholar
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/GuyWberg" target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- About -->
+  <section class="section">
+    <h2 class="hello-title">Hello!</h2>
+    <div class="bio">
+      <p>
+        I'm Guy Weissenberg, a PhD student at
+        <a href="https://epfl.ch">EPFL</a>, advised by
+        <a href="#">Alessandro Chiesa</a> and <a href="#">Michael Kapralov</a>.
+        I work in theoretical computer science, with a focus on proof systems,
+        coding theory, sublinear algorithms, and property testing.
+      </p>
+      <p>
+        I received my M.Sc. from the <a href="#">Weizmann Institute of Science</a>, advised by
+        <a href="#">Prof. Zvika Brakerski</a>. Prior to my PhD, I was a researcher at the
+        Weizmann Institute of Science, working with <a href="#">Prof. Irit Dinur</a> on locally
+        testable codes, and a senior researcher at <a href="#">Ingonyama</a>, working on hardware
+        for cryptographic applications. Before that, I was an Algorithms Developer at <a href="#">Mend</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section class="section">
+    <h2 class="section-title">Publications</h2>
+    <ul class="pub-list">
+
+      <li class="pub-item">
+        <a class="pub-link" href="https://arxiv.org/abs/2512.12960" target="_blank" rel="noopener">3-Query RLDCs are Strictly Stronger than 3-Query LDCs</a><span class="pub-venue">, STOC 2026</span>
+        <div class="pub-authors">Tom Gur, Dor Minzer, <strong>Guy Weissenberg</strong>, Kai Zhe Zheng</div>
+      </li>
+
+      <li class="pub-item">
+        <a class="pub-link" href="https://arxiv.org/abs/2104.03591" target="_blank" rel="noopener">Unitary Subgroup Testing</a>
+        <div class="pub-authors">Zvika Brakerski, Devika Sharma, <strong>Guy Weissenberg</strong></div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- Industry Research -->
+  <section class="section">
+    <h2 class="section-title">Industry Research</h2>
+    <ul class="pub-list">
+
+      <li class="pub-item">
+        <a class="pub-link" href="https://github.com/ingonyama-zk/papers/blob/main/halo2_community_detection_research.pdf" target="_blank" rel="noopener">Application of Graph Methods for Efficient Quotient Polynomial Evaluation in Halo2</a><span class="pub-venue">, Ingonyama</span>
+        <div class="pub-authors">Karthik Inbasekar, Roman Palkin, <strong>Guy Weissenberg</strong></div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- Teaching -->
+  <section class="section">
+    <h2 class="section-title">Teaching</h2>
+    <ul class="teaching-list">
+      <li class="teaching-item">
+        <div class="teaching-course">CS-251 Theory of Computation <span>— EPFL</span></div>
+        <div class="teaching-meta">Teaching Assistant</div>
+      </li>
+      <li class="teaching-item">
+        <div class="teaching-course">CS-450 Advanced Algorithms <span>— EPFL</span></div>
+        <div class="teaching-meta">Teaching Assistant</div>
+      </li>
+      <li class="teaching-item">
+        <div class="teaching-course">CS-250 Algorithms I <span>— EPFL</span></div>
+        <div class="teaching-meta">Teaching Assistant</div>
+      </li>
+      <li class="teaching-item">
+        <div class="teaching-course">Property Testing <span>— Reichman University</span></div>
+        <div class="teaching-meta">Teaching Assistant</div>
+      </li>
+    </ul>
+  </section>
+
+</div>
+
+</body>
+</html>
