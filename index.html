@@ -20,6 +20,50 @@
       --border: #e2ddd8;
     }
 
+    [data-theme="dark"] {
+      --bg: #1a1a1a;
+      --text: #e8e6e1;
+      --text-light: #aaa;
+      --text-muted: #666;
+      --accent: #7ba4e0;
+      --accent-light: #1e2a3a;
+      --border: #333;
+    }
+
+    /* ── Dark mode toggle ── */
+    .theme-toggle {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .theme-toggle:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.15); }
+
+    .theme-toggle svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--text);
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke 0.2s;
+    }
+
+    [data-theme="dark"] .theme-toggle svg { stroke: #c8a45a; }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -32,7 +76,7 @@
     }
 
     .page {
-      max-width: 780px;
+      max-width: 860px;
       margin: 0 auto;
       padding: 4rem 2rem 6rem;
     }
@@ -249,6 +293,11 @@
 </head>
 <body>
 
+<button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
+  <svg id="iconMoon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg id="iconSun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+
 <div class="page">
 
   <!-- Header -->
@@ -371,6 +420,28 @@
   </section>
 
 </div>
+
+<script>
+  const toggle = document.getElementById('themeToggle');
+  const moon = document.getElementById('iconMoon');
+  const sun = document.getElementById('iconSun');
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    if (theme === 'dark') { moon.style.display = 'none'; sun.style.display = 'block'; }
+    else { moon.style.display = 'block'; sun.style.display = 'none'; }
+  }
+
+  const saved = localStorage.getItem('theme');
+  if (saved) applyTheme(saved);
+
+  toggle.addEventListener('click', () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const next = isDark ? 'light' : 'dark';
+    applyTheme(next);
+    localStorage.setItem('theme', next);
+  });
+</script>
 
 </body>
 </html>
