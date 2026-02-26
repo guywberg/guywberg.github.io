@@ -4,9 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Guy Weissenberg</title>
+  <script>
+    // Apply theme before first paint to prevent flash
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    } catch(e) {}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -64,7 +72,11 @@
 
     [data-theme="dark"] .theme-toggle svg { stroke: #c8a45a; }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+      transition: background 0.2s, color 0.2s;
+    }
 
     body {
       font-family: 'DM Sans', sans-serif;
@@ -75,6 +87,7 @@
       min-height: 100vh;
       display: flex;
       justify-content: center;
+      transition: background 0.2s, color 0.2s;
     }
 
     .page {
@@ -252,8 +265,9 @@
     a.pub-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
     .pub-venue {
-      font-size: 0.82rem;
-      color: var(--text-muted);
+      font-size: 0.85rem;
+      color: #777;
+      margin-left: 0.5rem;
     }
 
     .pub-authors {
@@ -271,6 +285,8 @@
       border-bottom: 1px solid transparent;
       transition: border-color 0.15s, color 0.15s;
     }
+
+    .pub-venue a.coauthor { color: #777; }
 
     a.coauthor:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
@@ -329,7 +345,9 @@
         </li>
         <li>
           <a href="https://scholar.google.com/citations?hl=en&authuser=1&user=upVcZgsAAAAJ" target="_blank" rel="noopener" title="Google Scholar">
-            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12 12 0 0 1 .84 4.572c0 3.45-2.239 6.35-5 7.85-2.761-1.5-5-4.4-5-7.85a12 12 0 0 1 .84-4.572L12 14z"/></svg>
+            <svg class="icon-lg" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="opacity:0.65">
+              <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5h3.5v.5a8.5 8.5 0 0 0 17 0v-.5H24L12 0z"/>
+            </svg>
           </a>
         </li>
         <li>
@@ -375,7 +393,12 @@
     <ul class="pub-list">
 
       <li class="pub-item">
-        <a class="pub-link" href="https://arxiv.org/abs/2512.12960" target="_blank" rel="noopener">3-Query RLDCs are Strictly Stronger than 3-Query LDCs</a><span class="pub-venue">, STOC 2026</span>
+        <a class="pub-link" href="https://eprint.iacr.org/2026/391" target="_blank" rel="noopener">Zero-Knowledge IOPPs for Constrained Interleaved Codes</a>
+        <div class="pub-authors"><a class="coauthor" href="https://ic-people.epfl.ch/~achiesa/">Alessandro Chiesa</a>, <a class="coauthor" href="https://gfenzi.io">Giacomo Fenzi</a>, <strong>Guy Weissenberg</strong></div>
+      </li>
+
+      <li class="pub-item">
+        <a class="pub-link" href="https://arxiv.org/abs/2512.12960" target="_blank" rel="noopener">3-Query RLDCs are Strictly Stronger than 3-Query LDCs</a><span class="pub-venue"> <a class="coauthor" href="https://acm-stoc.org/stoc2026/" target="_blank" rel="noopener">STOC 2026</a></span>
         <div class="pub-authors"><a class="coauthor" href="https://www.cst.cam.ac.uk/people/tg508">Tom Gur</a>, <a class="coauthor" href="https://sites.google.com/view/dorminzer/home">Dor Minzer</a>, <strong>Guy Weissenberg</strong>, <a class="coauthor" href="https://sites.google.com/view/kaics/home?pli=1&authuser=1">Kai Zhe Zheng</a></div>
       </li>
 
@@ -393,7 +416,7 @@
     <ul class="pub-list">
 
       <li class="pub-item">
-        <a class="pub-link" href="https://github.com/ingonyama-zk/papers/blob/main/halo2_community_detection_research.pdf" target="_blank" rel="noopener">Application of Graph Methods for Efficient Quotient Polynomial Evaluation in Halo2</a><span class="pub-venue">, Ingonyama</span>
+        <a class="pub-link" href="https://github.com/ingonyama-zk/papers/blob/main/halo2_community_detection_research.pdf" target="_blank" rel="noopener">Application of Graph Methods for Efficient Quotient Polynomial Evaluation in Halo2</a><span class="pub-venue"> Ingonyama</span>
         <div class="pub-authors">Karthik Inbasekar, Roman Palkin, <strong>Guy Weissenberg</strong></div>
       </li>
 
@@ -447,19 +470,24 @@
   const sun = document.getElementById('iconSun');
 
   function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    if (theme === 'dark') { moon.style.display = 'none'; sun.style.display = 'block'; }
-    else { moon.style.display = 'block'; sun.style.display = 'none'; }
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      moon.style.display = 'none';
+      sun.style.display = 'block';
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      moon.style.display = 'block';
+      sun.style.display = 'none';
+    }
+    localStorage.setItem('theme', theme);
   }
 
-  const saved = localStorage.getItem('theme');
-  if (saved) applyTheme(saved);
+  // Restore saved preference, default to light
+  applyTheme(localStorage.getItem('theme') || 'light');
 
   toggle.addEventListener('click', () => {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    const next = isDark ? 'light' : 'dark';
-    applyTheme(next);
-    localStorage.setItem('theme', next);
+    applyTheme(isDark ? 'light' : 'dark');
   });
 </script>
 
