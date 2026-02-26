@@ -265,6 +265,15 @@
 
     .pub-authors strong { color: var(--text); font-weight: 500; }
 
+    a.coauthor {
+      color: var(--text-light);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    a.coauthor:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
     /* ── Teaching ── */
     .teaching-list { list-style: none; }
 
@@ -343,19 +352,19 @@
         and <a href="https://theory.epfl.ch/kapralov/">Prof. Michael Kapralov</a>.
       </p>
       <p>
-        I work in theoretical computer science, with a focus on proof systems,
+        I like thinking about theoretical computer science — particularly proof systems,
         coding theory, sublinear algorithms, and property testing.
       </p>
       <p>
-        I received my M.Sc. from the <a href="https://www.weizmann.ac.il/math/">Weizmann Institute of Science</a>, advised by
-        <a href="https://zvikab.bitbucket.io">Prof. Zvika Brakerski</a>. Prior to my PhD, I was a researcher at the
-        Weizmann Institute of Science, working with <a href="https://www.wisdom.weizmann.ac.il/~dinuri/">Prof. Irit Dinur</a> on locally
-        testable codes, and a senior researcher at <a href="https://www.ingonyama.com">Ingonyama</a>, working on hardware
-        for cryptographic applications. Before that, I was an Algorithms Developer at <a href="https://www.mend.io">Mend</a>.
+        Before EPFL, I got my M.Sc. from the <a href="https://www.weizmann.ac.il/math/">Weizmann Institute of Science</a>,
+        advised by <a href="https://zvikab.bitbucket.io">Prof. Zvika Brakerski</a>.
+        After that, I worked with <a href="https://www.wisdom.weizmann.ac.il/~dinuri/">Prof. Irit Dinur</a> at Weizmann
+        on implementing locally testable codes, and as a senior researcher at <a href="https://www.ingonyama.com">Ingonyama</a>,
+        working on hardware for proof systems. I also worked as an Algorithms Developer at <a href="https://www.mend.io">Mend</a>.
       </p>
       <p>
         In the summer of 2025, I had the pleasure of visiting <a href="https://www.cst.cam.ac.uk/people/tg508">Tom Gur</a>
-        at the University of Cambridge.
+        at the <a href="https://www.cst.cam.ac.uk">University of Cambridge</a>.
       </p>
     </div>
   </section>
@@ -367,12 +376,12 @@
 
       <li class="pub-item">
         <a class="pub-link" href="https://arxiv.org/abs/2512.12960" target="_blank" rel="noopener">3-Query RLDCs are Strictly Stronger than 3-Query LDCs</a><span class="pub-venue">, STOC 2026</span>
-        <div class="pub-authors">Tom Gur, Dor Minzer, <strong>Guy Weissenberg</strong>, Kai Zhe Zheng</div>
+        <div class="pub-authors"><a class="coauthor" href="https://www.cst.cam.ac.uk/people/tg508">Tom Gur</a>, <a class="coauthor" href="https://sites.google.com/view/dorminzer/home">Dor Minzer</a>, <strong>Guy Weissenberg</strong>, <a class="coauthor" href="https://sites.google.com/view/kaics/home?pli=1&authuser=1">Kai Zhe Zheng</a></div>
       </li>
 
       <li class="pub-item">
         <a class="pub-link" href="https://arxiv.org/abs/2104.03591" target="_blank" rel="noopener">Unitary Subgroup Testing</a>
-        <div class="pub-authors">Zvika Brakerski, Devika Sharma, <strong>Guy Weissenberg</strong></div>
+        <div class="pub-authors"><a class="coauthor" href="https://zvikab.bitbucket.io">Zvika Brakerski</a>, <a class="coauthor" href="https://dblp.org/pid/253/4077.html">Devika Sharma</a>, <strong>Guy Weissenberg</strong></div>
       </li>
 
     </ul>
@@ -396,24 +405,24 @@
     <h2 class="section-title">Teaching</h2>
     <ul class="teaching-list">
       <li class="teaching-item">
-        <div class="teaching-course">CS-459 Foundations of Probabilistic Proofs <span>— EPFL</span></div>
-        <div class="teaching-meta">Teaching Assistant</div>
+        <div class="teaching-course">CS-459 Foundations of Probabilistic Proofs</div>
+        <div class="teaching-meta">EPFL</div>
       </li>
       <li class="teaching-item">
-        <div class="teaching-course">CS-251 Theory of Computation <span>— EPFL</span></div>
-        <div class="teaching-meta">Teaching Assistant</div>
+        <div class="teaching-course">CS-251 Theory of Computation</div>
+        <div class="teaching-meta">EPFL</div>
       </li>
       <li class="teaching-item">
-        <div class="teaching-course">CS-450 Advanced Algorithms <span>— EPFL</span></div>
-        <div class="teaching-meta">Teaching Assistant</div>
+        <div class="teaching-course">CS-450 Advanced Algorithms</div>
+        <div class="teaching-meta">EPFL</div>
       </li>
       <li class="teaching-item">
-        <div class="teaching-course">CS-250 Algorithms I <span>— EPFL</span></div>
-        <div class="teaching-meta">Teaching Assistant</div>
+        <div class="teaching-course">CS-250 Algorithms I</div>
+        <div class="teaching-meta">EPFL</div>
       </li>
       <li class="teaching-item">
-        <div class="teaching-course">Property Testing <span>— Reichman University</span></div>
-        <div class="teaching-meta">Teaching Assistant</div>
+        <div class="teaching-course">Property Testing</div>
+        <div class="teaching-meta">Reichman University</div>
       </li>
     </ul>
   </section>
