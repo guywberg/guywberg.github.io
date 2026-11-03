@@ -13,7 +13,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -232,6 +232,15 @@
 
     .bio p:last-child { margin-bottom: 0; }
 
+    .bio strong { font-weight: 600; }
+
+    .bio .highlight {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      padding: 0.6rem 0.9rem;
+    }
+
     .bio a {
       color: var(--accent);
       text-decoration: none;
@@ -389,6 +398,10 @@
       <p>
         In the summer of 2025, I had the pleasure of visiting <a href="https://www.cst.cam.ac.uk/people/tg508">Prof. Tom Gur</a>
         at the <a href="https://www.cst.cam.ac.uk">University of Cambridge</a>.
+      </p>
+      <p class="highlight">
+        🔐 Check out <a href="https://www.anthropic.com/research/provable-inference" target="_blank" rel="noopener"><strong>FlashProve</strong></a>,
+        a recent collaboration with Anthropic on provable inference.
       </p>
     </div>
   </section>
